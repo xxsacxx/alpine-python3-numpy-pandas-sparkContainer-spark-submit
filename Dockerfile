@@ -6,6 +6,26 @@ ENV PYTHONUNBUFFERED 1
 ENV CHROME_BIN /usr/bin/chromium-browser
 ENV CHROME_PATH /usr/lib/chromium/
 
+RUN set -ex && \
+    apk upgrade --no-cache && \
+    apk add --no-cache bash tini libc6-compat linux-pam && \
+    mkdir -p /opt/spark && \
+    mkdir -p /opt/spark/work-dir && \
+    touch /opt/spark/RELEASE && \
+    rm /bin/sh && \
+    ln -sv /bin/bash /bin/sh && \
+    echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su && \
+    chgrp root /etc/passwd && chmod ug+rw /etc/passwd
+
+    
+ADD jars /opt/spark/jars
+ADD bin /opt/spark/bin
+ADD sbin /opt/spark/sbin
+ADD kubernetes/dockerfiles/spark/entrypoint.sh /opt/
+ADD examples /opt/spark/examples
+ADD kubernetes/tests /opt/spark/tests
+ADD data /opt/spark/data
+
 ADD requirements.txt /requirements.txt
 RUN set -ex \
     && apk update \
@@ -43,22 +63,13 @@ RUN set -ex \
 
 
 
-ENV SPARK_HOME=/opt/spark
-ENV SPARK_USER=ticksmith
-
-ARG SPARK_VERSION=2.4.3
-
-WORKDIR /opt
-
-RUN apk add --update openssl wget bash && \
-    wget -P /opt https://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    tar xvzf spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    rm spark-$SPARK_VERSION-bin-hadoop2.7.tgz && \
-    ln -s /opt/spark-$SPARK_VERSION-bin-hadoop2.7 /opt/spark
 
 
+ENV SPARK_HOME /opt/spark
 
+WORKDIR /opt/spark/work-dir
 
+ENTRYPOINT [ "/opt/entrypoint.sh" ]
 
     
 
