@@ -11,7 +11,7 @@ Using python3.6 alpine base image adds java,pandas, numpy,pyspark,spark,kafka,py
 This image can be used as container image when you run spark-submit on k8. 
 
 
-When you spark-submit you have to specify "spark.kubernetes.container.image=<image>"in conf options .
+When you spark-submit you have to specify "spark.kubernetes.container.image=<spark_image>"in conf options .
 
 That image will be applied on the drivers and executors. So if you need any dependencies like numpy,pandas in your code 
 than you need to make sure that these dependencies are present in that image.Also this image should have spark and other dependencies like(Java,pyspark)
