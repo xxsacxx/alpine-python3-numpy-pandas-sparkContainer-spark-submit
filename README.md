@@ -20,4 +20,4 @@ than you need to make sure that these dependencies are present in that image.Als
 This image has all these dependencies(check requirements.txt) 
 
 
-If you need some more dependencies to be added you can add it in requirements.txt)
+If you need some more dependencies to be added you can add it in requirements.txt
