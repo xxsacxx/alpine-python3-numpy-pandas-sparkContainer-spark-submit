@@ -1,9 +1,8 @@
 # alpine-python3-numpy-pandas-sparkContainer-spark-submit #
 
-### If you are interested in working with Big Data(spark,pyspark,Java),ML(numpy,pandas),Data Engineering (kafka,pymongo,flatbuffers) ### 
-### on Docker - Kubernetes ###
+### If you are interested in working with Big Data(spark,pyspark,Java),ML(numpy,pandas),Data Engineering (kafka,pymongo,flatbuffers)on Docker - Kubernetes ###
 
-![you are expected to know everything possible with data in it](https://i.imgur.com/1k3or4G.jpg)
+![you are expected to know everything possible with data in it](https://i.imgur.com/el8l3nS.jpg)
 
 
 Using python3.6 alpine base image adds java,pandas, numpy,pyspark,spark,kafka,pymongo,flatbuffers as rundeps. 
