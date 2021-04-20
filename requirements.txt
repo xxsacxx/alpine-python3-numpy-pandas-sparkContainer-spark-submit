@@ -12,7 +12,7 @@ numpy==1.15.0
 pandas==0.23.3
 pathlib2==2.3.2           # via pytest
 pluggy==0.7.1             # via pytest
-py==1.5.4                 # via pytest
+py==1.10.0                 # via pytest
 pytest==3.7.0
 python-dateutil==2.6.1    # via pandas
 pytz==2018.5              # via pandas
