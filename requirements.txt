@@ -23,7 +23,7 @@ boto3
 requests
 kafka-python==1.4.4
 jsonschema==2.6.0
-ujson==1.35
+ujson==5.4.0
 pymongo==3.8.0
 grpcio==1.20.1
 grpcio-tools==1.20.1
