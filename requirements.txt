@@ -18,7 +18,7 @@ python-dateutil==2.6.1    # via pandas
 pytz==2018.5              # via pandas
 scandir==1.7              # via pathlib2
 six==1.11.0               # via more-itertools, pathlib2, pytest, python-dateutil
-pyspark==2.4.3
+pyspark==3.2.2
 boto3
 requests
 kafka-python==1.4.4
